@@ -6,7 +6,7 @@ import { getEndHandleValue, getMaxValue, getMinValue, getStartHandleValue, toSec
 export interface MirtProps {
   className?: string;
   style?: React.CSSProperties;
-  file: File;
+  file: File | null;
   onChange?: ({ start, current, end }: { start: number; current: number; end: number }) => void;
   onAudioLoaded?: (audio: HTMLAudioElement) => void;
   onWaveformLoaded?: () => void;
