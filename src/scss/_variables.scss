@@ -1,0 +1,20 @@
+$height: var(--mirt-height, 3rem);
+$border-radius: var(--mirt-border-radius, 0.3rem);
+$background-color: var(--mirt-background-color, #333);
+
+$playhead-width: var(--mirt-playhead-width, 0.35rem);
+$playhead-color: var(--mirt-playhead-color, #fff);
+
+$frame-border-width: var(--mirt-frame-border-width, 0.3rem);
+$frame-color: var(--mirt-frame-color, #409f80);
+
+$handle-width: var(--mirt-handle-width, 1.2rem);
+$handle-icon-color: var(--mirt-handle-icon-color, #333);
+$handle-icon-width: var(--mirt-handle-icon-width, 0.75rem);
+$handle-transition-duration: var(--mirt-handle-tranisiton-duration, 500ms);
+
+$button-width: var(--mirt-button-width, 3rem);
+$button-border-color: var(--mirt-button-border-color, #222);
+$button-hover-color: var(--mirt-button-hover-color, #444);
+$button-icon-width: var(--mirt-button-icon-width, 1rem);
+$button-icon-color: var(--mirt-button-icon-color, #fff);
