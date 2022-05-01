@@ -15,7 +15,7 @@ An react audio trimmer component ~copied~ inspired by iOS. It can be used to set
 
 ```javascript
 import Mirt from 'react-mirt';
-import 'react-mirt/dist/react-mirt.css';
+import 'react-mirt/dist/css/react-mirt.css';
 
 function App() {
   return <Mirt file={myWayTooLongAudioFile} />;
