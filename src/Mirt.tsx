@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { Waveform } from './lib/Waveform';
+import Waveform from './lib/Waveform';
 import { getEndHandleValue, getMaxValue, getMinValue, getStartHandleValue, toSeconds } from './lib/utils';
 
 export interface MirtProps {
@@ -32,16 +32,7 @@ const defauiltOptions: MirtOptions = {
   fineTuningScale: 5,
 };
 
-export const Mirt = ({
-  className,
-  style,
-  file,
-  onChange,
-  onAudioLoaded,
-  onWaveformLoaded,
-  onError,
-  options,
-}: MirtProps) => {
+const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoaded, onError, options }: MirtProps) => {
   const config = { ...defauiltOptions, ...options };
 
   const start = useRef<HTMLInputElement>(null);
@@ -438,3 +429,5 @@ export const Mirt = ({
     </div>
   );
 };
+
+export default Mirt;

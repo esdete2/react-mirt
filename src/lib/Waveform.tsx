@@ -10,7 +10,7 @@ export interface MirtWaveformProps {
   handleWaveformLoaded: () => void;
 }
 
-export const Waveform = ({
+const Waveform = ({
   file,
   fineTuning,
   fineTuningResolution,
@@ -82,3 +82,5 @@ export const Waveform = ({
 
   return <canvas className="mirt__waveform-canvas" ref={canvasRef} width={size.width * 4} height={size.height * 4} />;
 };
+
+export default Waveform;
