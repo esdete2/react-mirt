@@ -8,17 +8,27 @@ import scss from 'rollup-plugin-scss';
 import visualizer from 'rollup-plugin-visualizer';
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
+import del from 'rollup-plugin-delete';
+import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 export default {
   input: ['./src/index.ts'],
-  output: {
-    dir: 'dist',
-    format: 'cjs',
-    sourcemap: true,
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: true,
+    },
+  ],
   plugins: [
+    del({ targets: 'dist/*' }),
     scss({
       output: 'dist/css/react-mirt.css',
       watch: 'src/scss',
@@ -37,8 +47,6 @@ export default {
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json',
-      declaration: true,
-      declarationDir: 'dist',
     }),
     terser(),
     visualizer({
