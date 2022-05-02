@@ -172,6 +172,10 @@ const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoade
     setEndPosition(durationInMilliseconds);
     setDuration(durationInMilliseconds);
     setInitialized(true);
+
+    if (onChange) {
+      onChange({ start: 0, current: 0, end: durationInMilliseconds });
+    }
   };
 
   const pausePlayback = (currentTime?: number) => {
