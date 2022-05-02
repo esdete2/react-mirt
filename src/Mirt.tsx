@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import Waveform from './lib/Waveform';
+import { Waveform } from './lib/Waveform';
 import { getEndHandleValue, getMaxValue, getMinValue, getStartHandleValue, toSeconds } from './lib/utils';
 
 export interface MirtProps {
@@ -438,5 +438,3 @@ export const Mirt = ({
     </div>
   );
 };
-
-export default Mirt;

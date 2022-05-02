@@ -12,7 +12,7 @@ export default {
   input: ['./src/index.ts'],
   output: {
     dir: 'dist',
-    format: 'cjs',
+    format: 'esm',
     sourcemap: true,
   },
   plugins: [
@@ -35,7 +35,7 @@ export default {
     terser(),
     visualizer({
       filename: 'bundle-analysis.html',
-      open: true,
+      open: false,
     }),
   ],
   external: ['react', 'react-dom'],

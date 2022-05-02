@@ -1,2 +1,2 @@
 import './scss/Mirt.scss';
-export { default } from './Mirt';
+export { Mirt as default } from './Mirt';
