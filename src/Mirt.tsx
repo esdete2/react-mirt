@@ -297,6 +297,18 @@ const Mirt = ({
     const value = parseInt(event.target.value);
 
     changeEndPosition(value);
+
+    if (value < startPosition) {
+      setPlayheadPosition(startPosition);
+      return;
+    }
+
+    if (value > duration) {
+      setPlayheadPosition(duration);
+      return;
+    }
+
+    setPlayheadPosition(value);
   };
 
   const changeEndPosition = (value: number) => {
@@ -305,13 +317,17 @@ const Mirt = ({
     if (value < startPosition) {
       audio.currentTime = toSeconds(startPosition);
       setEndPosition(startPosition);
-      setPlayheadPosition(startPosition);
+      return;
+    }
+
+    if (value > duration) {
+      audio.currentTime = toSeconds(duration);
+      setEndPosition(duration);
       return;
     }
 
     audio.currentTime = toSeconds(value);
     setEndPosition(value);
-    setPlayheadPosition(value);
   };
 
   const handleButtonClick = () => {
