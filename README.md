@@ -41,6 +41,8 @@ function App() {
 | `waveformBlockWidth` | `number`  | 4                        | Width of waveform block (sum of bar and space)                                               |
 | `fineTuningDelay`    | `number`  | 500                      | Delay (ms) for switching to fine tuning (0 disables fine tuning)                             |
 | `fineTuningScale`    | `number`  | 5                        | Zoom factor for fine tuning                                                                  |
+| `start`              | `number`  |                          | Overwrite current start value                                                                |
+| `end`                | `number`  |                          | Overwrite current end value                                                                  |
 
 ## Callback functions
 

@@ -11,6 +11,8 @@ export interface MirtProps {
   onAudioLoaded?: (audio: HTMLAudioElement) => void;
   onWaveformLoaded?: () => void;
   onError?: (error: Error) => void;
+  start?: number;
+  end?: number;
   options?: MirtOptions;
 }
 
@@ -32,7 +34,18 @@ const defauiltOptions: MirtOptions = {
   fineTuningScale: 5,
 };
 
-const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoaded, onError, options }: MirtProps) => {
+const Mirt = ({
+  className,
+  style,
+  file,
+  onChange,
+  onAudioLoaded,
+  onWaveformLoaded,
+  onError,
+  start: startValueOverwrite,
+  end: endValueOverwrite,
+  options,
+}: MirtProps) => {
   const config = { ...defauiltOptions, ...options };
 
   const start = useRef<HTMLInputElement>(null);
@@ -151,6 +164,18 @@ const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoade
     };
   }, [playheadDragging, playheadPosition]);
 
+  useEffect(() => {
+    if (startValueOverwrite !== undefined) {
+      changeStartPosition(startValueOverwrite);
+    }
+  }, [startValueOverwrite]);
+
+  useEffect(() => {
+    if (endValueOverwrite !== undefined) {
+      changeEndPosition(endValueOverwrite);
+    }
+  }, [endValueOverwrite]);
+
   const handleLoadedAudio = () => {
     if (!audio) return;
 
@@ -225,6 +250,12 @@ const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoade
 
     const value = parseInt(event.target.value);
 
+    changeStartPosition(value);
+  };
+
+  const changeStartPosition = (value: number) => {
+    if (!audio) return;
+
     if (value > endPosition) {
       audio.currentTime = toSeconds(endPosition);
       setStartPosition(endPosition);
@@ -264,6 +295,12 @@ const Mirt = ({ className, style, file, onChange, onAudioLoaded, onWaveformLoade
     if (!audio || !endDragging) return;
 
     const value = parseInt(event.target.value);
+
+    changeEndPosition(value);
+  };
+
+  const changeEndPosition = (value: number) => {
+    if (!audio) return;
 
     if (value < startPosition) {
       audio.currentTime = toSeconds(startPosition);
