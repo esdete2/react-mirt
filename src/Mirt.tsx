@@ -21,6 +21,7 @@ export interface MirtOptions {
   waveformColor: string;
   waveformBlockWidth: number;
   waveformBarWidth: number;
+  waveformLoading: boolean;
   fineTuningDelay: number;
   fineTuningScale: number;
 }
@@ -30,6 +31,7 @@ const defauiltOptions: MirtOptions = {
   waveformColor: 'rgba(255, 255, 255, 0.5)',
   waveformBlockWidth: 4,
   waveformBarWidth: 0.5,
+  waveformLoading: false,
   fineTuningDelay: 500,
   fineTuningScale: 5,
 };

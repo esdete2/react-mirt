@@ -43,6 +43,15 @@ export const getStartHandleValue = (
   return value.toFixed(4);
 };
 
+export const getRawData = async (file: File) => {
+  const arrayBuffer = await file.arrayBuffer();
+  const audioContext = new AudioContext();
+  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+  const rawData = await audioBuffer.getChannelData(0);
+
+  return rawData;
+};
+
 export const getEndHandleValue = (
   position: number,
   fineTuning: number,
@@ -63,18 +72,13 @@ export const getEndHandleValue = (
 };
 
 export const getWaveformData = async (
-  file: File,
+  rawData: Float32Array,
   canvas: HTMLCanvasElement,
   fineTuning: number,
   fineTuningResolution: number,
   duration: number,
   config: MirtOptions
 ) => {
-  const arrayBuffer = await file.arrayBuffer();
-  const audioContext = new AudioContext();
-  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-
-  const rawData = audioBuffer.getChannelData(0);
   const samples = Math.floor(canvas.offsetWidth / config.waveformBlockWidth);
 
   let data: Float32Array;

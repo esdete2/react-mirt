@@ -39,6 +39,7 @@ function App() {
 | `waveformColor`      | `string`  | rgba(255, 255, 255, 0.5) | Color of the waveform as CSS color value                                                     |
 | `waveformBarWidth`   | `number`  | 0.5                      | Width of waveform bar depending on the block width (e.g. 0.5 equals half of the block width) |
 | `waveformBlockWidth` | `number`  | 4                        | Width of waveform block (sum of bar and space)                                               |
+| `waveformLoading`    | `boolean` | false                    | Animate waveform until actual waveform is loaded                                             |
 | `fineTuningDelay`    | `number`  | 500                      | Delay (ms) for switching to fine tuning (0 disables fine tuning)                             |
 | `fineTuningScale`    | `number`  | 5                        | Zoom factor for fine tuning                                                                  |
 | `start`              | `number`  |                          | Overwrite current start value                                                                |
