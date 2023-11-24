@@ -37,17 +37,17 @@ const defaultOptions: MirtOptions = {
 };
 
 const Mirt = ({
-                className,
-                style,
-                file,
-                onChange,
-                onAudioLoaded,
-                onWaveformLoaded,
-                onError,
-                start: startValueOverwrite,
-                end: endValueOverwrite,
-                options,
-              }: MirtProps) => {
+  className,
+  style,
+  file,
+  onChange,
+  onAudioLoaded,
+  onWaveformLoaded,
+  onError,
+  start: startValueOverwrite,
+  end: endValueOverwrite,
+  options,
+}: MirtProps) => {
   const config = { ...defaultOptions, ...options };
 
   const start = useRef<HTMLInputElement>(null);
