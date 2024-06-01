@@ -80,8 +80,11 @@ const Mirt = ({
     }
 
     if (file && file.type.startsWith('audio')) {
-      const source = URL.createObjectURL(file);
-      setAudio(new Audio(source));
+      const audio = new Audio();
+      audio.preload = 'metadata';
+      audio.src = URL.createObjectURL(file);
+
+      setAudio(audio);
     } else {
       onError && onError(new Error('Invalid file type'));
     }
@@ -185,7 +188,7 @@ const Mirt = ({
       onAudioLoaded(audio);
     }
 
-    audio.removeEventListener('canplaythrough', handleLoadedAudio);
+    audio.removeEventListener('loadedmetadata', handleLoadedAudio);
     setInitialValues();
   };
 
