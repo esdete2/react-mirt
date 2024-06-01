@@ -91,7 +91,7 @@ const Mirt = ({
     if (!audio) return;
 
     if (audio?.src) {
-      audio.addEventListener('canplaythrough', handleLoadedAudio);
+      audio.addEventListener('loadedmetadata', handleLoadedAudio);
       audio.load();
     }
   }, [audio]);
