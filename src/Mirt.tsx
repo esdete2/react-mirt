@@ -13,7 +13,7 @@ export interface MirtProps {
   onError?: (error: Error) => void;
   start?: number;
   end?: number;
-  options?: MirtOptions;
+  options?: Partial<MirtOptions>;
 }
 
 export interface MirtOptions {
@@ -26,7 +26,7 @@ export interface MirtOptions {
   fineTuningScale: number;
 }
 
-const defauiltOptions: MirtOptions = {
+const defaultOptions: MirtOptions = {
   showButton: true,
   waveformColor: 'rgba(255, 255, 255, 0.5)',
   waveformBlockWidth: 4,
@@ -48,7 +48,7 @@ const Mirt = ({
   end: endValueOverwrite,
   options,
 }: MirtProps) => {
-  const config = { ...defauiltOptions, ...options };
+  const config = { ...defaultOptions, ...options };
 
   const start = useRef<HTMLInputElement>(null);
   const playhead = useRef<HTMLInputElement>(null);
