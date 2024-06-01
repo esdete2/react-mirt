@@ -18,7 +18,6 @@ const Waveform = ({
   config,
   handleWaveformLoaded,
 }: MirtWaveformProps) => {
-  const [loading, setLoading] = useState(true);
   const [rawData, setRawData] = useState<Float32Array>();
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [waveformData, setWaveformData] = useState<Array<number>>();
