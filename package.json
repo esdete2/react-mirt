@@ -31,6 +31,12 @@
     "build": "rollup -c",
     "semantic-release": "semantic-release"
   },
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": ">= 16.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
@@ -64,9 +70,6 @@
     "tslib": "^2.6.2",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {
-    "react": ">= 16.3.0"
-  },
   "release": {
     "branches": [
       "main",
@@ -75,8 +78,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1"
   }
 }
